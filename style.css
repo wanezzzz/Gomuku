@@ -1,0 +1,80 @@
+@font-face {
+    font-family:Astakhov Dished;
+    src: url(fonts/10425.ttf);
+}
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Astakhov Dished;
+    text-align: center;
+    font-size: 5vh;
+}
+.result{
+   background-color: white;
+   border: 2px solid black;
+   z-index: 2;
+   position: absolute;
+   top: 10%;
+   left: 10%;
+   right: 10%;
+   bottom: 10%;
+   padding: 10%;
+}
+.result .button{
+    margin-top: 20%;
+}
+.retry{
+
+height: 30%;
+background-image: url('sprite.png');
+background-size: 100%;
+padding-top: 40%;
+margin-top: 10%;
+}
+.menu{
+    height: 100%;
+    padding: 0;
+}
+.container{
+    padding: 0%;
+    box-sizing: border-box;
+}
+#logo.container{
+   font-size: 10vh;
+    padding: 10%;
+}
+
+.difficult{
+    
+}
+.text{
+   font-size: 70%; 
+    margin-top: 9%;
+    padding-bottom: 0;
+}
+.panel{
+    font-size: 70%;
+}
+.panel div{
+    display: inline-block;
+    width: 20%;
+    margin: 3%;
+}
+.button{
+    background-color: #a1c3ec;
+    border-radius: 7px;
+    padding: 3%;
+}
+.button_active{
+    box-shadow: 0px 0px 11px 6px rgba(0,0,0,0.75)
+}
+#new_game.button{
+    margin-left: 25%;
+    margin-right: 25%;
+    height: 40%;
+}
+
+.hidden {
+   display: none;
+}
