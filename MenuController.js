@@ -25,7 +25,7 @@ let MenuController = function(){
       this.newGameButton.onclick = this.newGame.bind(this);
        //подписка на кнопку main Menu
        this.mainMenuButton = document.getElementById('mainMenu');
-       this.mainMenuButton.onclick=this.mainMenu();
+       this.mainMenuButton.onclick=this.mainMenu.bind(this);
        //Подписка на кнопку Retry
        this.retryButton=document.getElementById('retry');
        this.retryButton.onclick=this.newGame.bind(this);
@@ -33,8 +33,8 @@ let MenuController = function(){
 
     this.mainMenu=function(){
        
-       document.getElementById('win').classList.add('hidden');
-        document.getElementById('menu').classList.remove('hidden');
+       document.getElementById('result').classList.add('hidden');
+       document.getElementById('menu').classList.remove('hidden');
     }
     
    this.newGame = function() {
@@ -43,7 +43,7 @@ let MenuController = function(){
       }
       this.game = new Game(WIDTH, HEIGHT, this.difficultyLevel, this.firstMove);
       document.getElementById('grid').classList.remove('hidden');
-      document.getElementById('win').classList.add('hidden');
+      document.getElementById('result').classList.add('hidden');
       document.getElementById('menu').classList.add('hidden');
    };
 

@@ -45,10 +45,18 @@ let GameController = function(view, model) {
    };
    
    this.checkWin = function(x, y) {
-      if (model.isWin(x, y)==model.firstMove+1) {
+       let win = model.isWin(x, y);
+       let fm = model.firstMove + 1;
+       let res = document.getElementById('win');
+      if (win) {
          document.getElementById('grid').classList.add('hidden');
-         document.getElementById('win').classList.remove('hidden');
-      }
+         document.getElementById('result').classList.remove('hidden');
+          if (win == fm){
+              res.innerHTML = "you win";
+          } else {
+              res.innerHTML = "you lose";
+          }
+         }
     
    };
 
