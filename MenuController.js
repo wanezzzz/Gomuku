@@ -1,7 +1,7 @@
 // jshint esversion: 6
 
-const WIDTH = 50;
-const HEIGHT = 50;
+const WIDTH = 10;
+const HEIGHT = 10;
 
 let MenuController = function () {
     this.difficultyLevel = 0;

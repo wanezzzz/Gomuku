@@ -73,7 +73,7 @@ let GameController = function (view, model) {
             document.getElementById('result').classList.remove('hidden');
             setTimeout(function(){
                 this.showResult(win, fm);
-            }.bind(this), 1000);
+            }.bind(this), 500);
             
         }
 
