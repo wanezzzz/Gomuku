@@ -309,7 +309,6 @@ let Model = function (width, height, AILevel, firstMove) {
             } else {
                 line = [];
                 inRow = 0;
-                break;
             }
             j++;
         }
