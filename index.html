@@ -1,52 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>tic-tac-toe</title>
     <script type="text/javascript" src="App.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>   
-  <div class="menu" id="menu"> 
-       <div class="container" id="logo">
+
+<body>
+   <div class="scroll" id="scroll">
+    </div>
+    <div class="menu" id="menu">
+        <div class="container" id="logo">
             tic-tac-toe
-       </div>
-       <div class="container">
-           <div class="button" id="new_game">
-               new game
-           </div>
-       </div>
-       <div class="container text">       
-            difficult       
-       </div>
-       <div class="container panel" id="difficult">
-           <div class="button button_active" id="0">easy</div>
-           <div class="button" id="1">medium</div>
-           <div class="button" id="2">hard</div>
-       </div>
-       <div class="container text">
-           first move
-       </div>
-       <div class="container panel" id="fm">
-           <div class="button button_active" id="0">human</div>
-           <div class="button" id="1">npc</div>
-       </div>
-       <div class="conatiner text">
-           kstu ltd. <br> 2017
-       </div>
-   </div>
-   <div id="grid" class="grid hidden">
-      <canvas id="canvas"></canvas>
-   </div>
-   
-   <div class="result hidden" id="result">
-      <span id="win"> </span>
-      <div class="retry" id="retry">
-         retry?
-     </div>
-     <div class="button" id="mainMenu">
-         main menu
-     </div>
-   </div>
+        </div>
+        <div class="container">
+            <div class="button" id="new_game">
+                new game
+            </div>
+        </div>
+        <div class="container text">
+            difficult
+        </div>
+        <div class="container panel" id="difficult">
+            <div class="button button_active" id="0">easy</div>
+            <div class="button" id="1">medium</div>
+            <div class="button" id="2">hard</div>
+        </div>
+        <div class="container text">
+            first move
+        </div>
+        <div class="container panel" id="fm">
+            <div class="button button_active" id="0">human</div>
+            <div class="button" id="1">npc</div>
+        </div>
+        <div class="conatiner text">
+            kstu ltd. <br> 2017
+        </div>
+    </div>
+    <div id="grid" class="grid hidden">
+        <canvas id="canvas"></canvas>
+    </div>    
+    <div class="hidden wrapper" id="result">
+        <div class="result hidden" id="result2">
+            <span id="win"> </span>
+            <div class="retry" id="retry">
+                retry?
+            </div>
+            <div class="button" id="mainMenu">
+                main menu
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

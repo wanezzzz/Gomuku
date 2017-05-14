@@ -1,8 +1,18 @@
 @font-face {
-    font-family:Astakhov Dished;
+    font-family: Astakhov Dished;
     src: url(fonts/10425.ttf);
 }
-html, body{
+
+.wrapper {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -10,71 +20,133 @@ html, body{
     text-align: center;
     font-size: 5vh;
 }
-.result{
-   background-color: white;
-   border: 2px solid black;
-   z-index: 2;
-   position: absolute;
-   top: 10%;
-   left: 10%;
-   right: 10%;
-   bottom: 10%;
-   padding: 10%;
-}
-.result .button{
-    margin-top: 20%;
-}
-.retry{
 
-height: 30%;
-background-image: url('sprite.png');
-background-size: 100%;
-padding-top: 40%;
-margin-top: 10%;
+.overflow {
+    overflow: hidden;
 }
-.menu{
-    height: 100%;
+
+.grid {
     padding: 0;
 }
-.container{
+
+.scroll {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: url(sprites/scroll.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+canvas {
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    height: 120%;
+}
+
+.result_win {
+    border: 5px solid green;
+}
+
+.result_lose {
+    border: 5px solid red;
+}
+
+.result {
+    font-size: 100%;
+    background-color: white;
+    z-index: 2;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+}
+
+.result .button {
+    display: inline-block;
+    margin-top: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+span {
+    display: block;
+    margin-top: 8vh;
+    margin-bottom: 6vh;
+    font-size: 10vh;
+}
+
+.retry {
+    height: 10%;
+    background-image: url('sprites/sprite.png');
+    background-repeat: no-repeat;
+    background-size: 30vh;
+    background-position: center;
+    padding-bottom: 10vh;
+    padding-top: 10vh;
+}
+
+.menu {
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+    position: fixed;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    top: 0%;
+    background-color: white;
+}
+
+.container {
     padding: 0%;
     box-sizing: border-box;
 }
-#logo.container{
-   font-size: 10vh;
-    padding: 10%;
+
+#logo.container {
+    font-size: 10vh;
+    padding-top: 10vh;
+    padding-bottom: 8vh;
 }
 
-.difficult{
-    
-}
-.text{
-   font-size: 70%; 
-    margin-top: 9%;
+.difficult {}
+
+.text {
+    font-size: 4vh;
+    margin-top: 3vh;
     padding-bottom: 0;
 }
-.panel{
+
+.panel {
     font-size: 70%;
 }
-.panel div{
+
+.panel div {
     display: inline-block;
-    width: 20%;
+    width: 25%;
     margin: 3%;
+    margin-bottom: 1vh;
+    margin-top: 1vh;
 }
-.button{
+
+.button {
     background-color: #a1c3ec;
     border-radius: 7px;
-    padding: 3%;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
 }
-.button_active{
-    box-shadow: 0px 0px 11px 6px rgba(0,0,0,0.75)
+
+.button_active {
+    box-shadow: 0px 0px 11px 6px rgba(0, 0, 0, 0.75)
 }
-#new_game.button{
+
+#new_game.button {
     margin-left: 25%;
     margin-right: 25%;
-    height: 40%;
 }
 
 .hidden {
-   display: none;
+    display: none;
 }
