@@ -94,6 +94,8 @@ let Model = function (width, height, AILevel, firstMove) {
     this.patternWin = [0, /(1){5}/, /(2){5}/, /[01]*7[01]*/, /[02]*7[02]*/]; // Массив выигрышных шаблонов [1] и [2] и шаблон определения возможности поставить 5 в ряд
     this.directions = []; // Направления расчета потенциальных ходов
     this.size = 15; // Размер поля (15х15 ячеек)
+    this.currentX = 0;
+    this.currentY = 0;
 
 
     this.initialize = function () {
@@ -214,13 +216,26 @@ let Model = function (width, height, AILevel, firstMove) {
 
     // Тупой AI
     this.lowLevelAIMove = function () {
-        x = Math.round(Math.random() * (this.width - 1));
-        y = Math.round(Math.random() * (this.height - 1));
-        if (this.isEmpty(x, y)) {
-            this.matrix[x][y] = this.AISymbol;
-            return [x, y];
+        let m = Math.round(Math.random() * (this.width - 1));
+        console.log;
+        if (m >= 10) {
+            for (let i = this.currentX; i < this.height; i++) {
+                for (let j = this.currentY; j < this.width; j++) {
+                    if (this.isEmpty(j, i)) {
+                        this.matrix[j][i] = this.AISymbol;
+                        return [j, i];
+                    }
+                }
+            }
         } else {
-            return this.AIMove();
+            for (let i = this.currentX; i < this.height; i--) {
+                for (let j = this.currentY; j < this.width; j--) {
+                    if (this.isEmpty(j, i)) {
+                        this.matrix[j][i] = this.AISymbol;
+                        return [j, i];
+                    }
+                }
+            }
         }
     };
 
@@ -271,8 +286,63 @@ let Model = function (width, height, AILevel, firstMove) {
         }
         line = [];
         inRow = 0;
+
+        i = x;
+        j = y;
+
+        while (i > 0 && j > 0) {
+            i--;
+            j--;
+        }
+        for (i; i < this.width; i++) {
+            if (this.matrix[i][j] == player) {
+                inRow++;
+                line.push([i, j]);
+                if (inRow == 5) {
+                    return {
+                        player: player,
+                        line: line
+                    };
+                }
+            } else {
+                line = [];
+                inRow = 0;
+            }
+            j++;
+            if (j > this.height - 1) {
+                break;
+            }
+        }
+        i = x;
+        j = y;
+
+        while (i > 0 && j < this.height) {
+            i--;
+            j++;
+        }
+        for (i; i < this.width; i++) {
+            if (this.matrix[i][j] == player) {
+                inRow++;
+                line.push([i, j]);
+                if (inRow == 5) {
+                    return {
+                        player: player,
+                        line: line
+                    };
+                }
+            } else {
+                line = [];
+                inRow = 0;
+            }
+            j--;
+            if (j < 0) {
+                break;
+            }
+        }
+        i = x;
+        j = y;
         //диагональ юго-запад
-        j = toHoriz;
+        /*j = toHoriz;
         for (let i = fromVert; i <= toVert; i++) {
             if (this.matrix[j][i] == player) {
                 inRow++;
@@ -313,7 +383,7 @@ let Model = function (width, height, AILevel, firstMove) {
             j++;
         }
         line = [];
-        inRow = 0;
+        inRow = 0;*/
 
         return false;
     };
