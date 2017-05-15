@@ -189,6 +189,8 @@ let Model = function (width, height, AILevel, firstMove) {
             this.who = !this.who; // Переход хода от Х к О, от О к Х
             this.x = y; //оси нарушены
             this.y = x;
+            this.currentX = this.x;
+            this.currentY = this.y;
 
             return true;
         } else {
@@ -216,28 +218,43 @@ let Model = function (width, height, AILevel, firstMove) {
 
     // Тупой AI
     this.lowLevelAIMove = function () {
+        //let m = Math.floor(Math.random() * (14 - 0 + 1)) + 0;
         let m = Math.round(Math.random() * (this.width - 1));
-        console.log;
+        var step = false;
         if (m >= 10) {
-            for (let i = this.currentX; i < this.height; i++) {
+            for (let i = this.currentX; i < this.height ; i++) {
                 for (let j = this.currentY; j < this.width; j++) {
                     if (this.isEmpty(j, i)) {
-                        this.matrix[j][i] = this.AISymbol;
-                        return [j, i];
-                    }
-                }
-            }
-        } else {
-            for (let i = this.currentX; i < this.height; i--) {
-                for (let j = this.currentY; j < this.width; j--) {
-                    if (this.isEmpty(j, i)) {
+                        step = true;
                         this.matrix[j][i] = this.AISymbol;
                         return [j, i];
                     }
                 }
             }
         }
+        else {
+            for (let i = this.currentX; i >= 0 ; i--) {
+                for (let j = this.currentY; j >= 0; j--) {
+                    if (this.isEmpty(j, i)) {
+                        step = true;
+                        this.matrix[j][i] = this.AISymbol;
+                        return [j, i];
+                    }
+                }
+            }
+        }
+        if (!step) {
+            x = Math.round(Math.random() * (this.width - 1));
+            y = Math.round(Math.random() * (this.height - 1));
+            if (this.isEmpty(x, y)) {
+                this.matrix[x][y] = this.AISymbol;
+                return [x, y];
+            } else {
+                return this.AIMove();
+            }
+        }
     };
+
 
     this.isWin = function (x, y) {
         let fromHoriz = x - this.row >= 0 ? x - this.row : 0;
